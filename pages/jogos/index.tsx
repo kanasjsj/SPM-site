@@ -8,7 +8,7 @@ const Jogos: NextPage = () => {
 
   const games = [
     { img: "/images/mini-games/double/Double.png", name: "Double Flowers", link: "/jogos/mini-games/double" },
-    { img: "/images/mini-games/double/Double.png", name: "Jogo 2", link: "/games/game2" },
+    { img: "/images/mini-games/Pirates Mines/Pirate_Mines.png", name: "Jogo 2", link: "/games/game2" },
     { img: "/images/game3.jpg", name: "Jogo 3", link: "/games/game3" },
     { img: "/images/game4.jpg", name: "Jogo 4", link: "/games/game4" },
     { img: "/images/game5.jpg", name: "Jogo 5", link: "/games/game5" },

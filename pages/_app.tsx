@@ -1,14 +1,14 @@
-import { ClerkProvider, useClerk, useSession } from '@clerk/nextjs'; // Corrigir importação
+import { ClerkProvider, useSession } from '@clerk/nextjs'; // Correção para uso de Clerk
 import { dark } from '@clerk/themes';
 import type { AppProps } from 'next/app';
 import { ptBR } from '@clerk/localizations';
 import '../styles/globals.css';
 import { useState, useEffect } from 'react';
-import Loading from './Loading'; // Componente de Loading
+import Loading from './Loading'; // Componente de loading
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ClerkProvider appearance={{ baseTheme: dark }} localization={ptBR}>
+    <ClerkProvider appearance={{ baseTheme: dark }} localization={ptBR} >
       <ClerkWrapper>
         <Component {...pageProps} />
       </ClerkWrapper>
@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 const ClerkWrapper = ({ children }: { children: React.ReactNode }) => {
   const [isClerkLoaded, setIsClerkLoaded] = useState(false);
-  const { isLoaded } = useSession(); // Corrigido para usar useSession() que retorna isLoaded
+  const { isLoaded } = useSession(); // Obtém o estado de carregamento da sessão do Clerk
 
   useEffect(() => {
     if (isLoaded) {
@@ -27,7 +27,7 @@ const ClerkWrapper = ({ children }: { children: React.ReactNode }) => {
   }, [isLoaded]);
 
   if (!isClerkLoaded) {
-    return <Loading />; // Exibe a tela de carregamento enquanto o Clerk não carrega
+    return <Loading />; // Exibe o componente Loading até que o Clerk esteja totalmente carregado
   }
 
   return <>{children}</>;
